@@ -12,10 +12,7 @@ int main(){
     //Input:
     vector<int> weights;
     int temp;
-    string line;
-    getline(cin, line);
-    istringstream iss(line);
-    while ( iss >> temp) {
+    while ( cin >> temp) {
         weights.push_back(temp);
     }
 
