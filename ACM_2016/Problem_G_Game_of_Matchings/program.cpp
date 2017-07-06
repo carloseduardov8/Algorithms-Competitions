@@ -24,21 +24,27 @@ int main(){
     int counter = 0;
     char* code_to_char;
     int* char_to_code;
+
     //Loops through every char of string:
     for (int i=0; i<line.length(); i++){
-        //If numer of remaining characters < codes size, break:
+
+        //If number of remaining characters < codes size, break:
         if ((line.length() - i) < codes.size()){
             break;
         }
         code_to_char = new char[27]();
         char_to_code = new int[255]();
+
         //Tries to match code to string:
         for (int j=0; j<n; j++){
 
+            //Checks to see if assigning letter i+j to codes[j] is possible:
             if ( ((code_to_char[ codes[j] ] == 0) or (code_to_char[ codes[j] ] == line[i+j]))
             and ( (char_to_code[ line[i+j] ] == codes[j]) or (char_to_code[ line[i+j] ] == 0) )){
+                //Assigns letter i+j to codes[j]:
                 code_to_char[ codes[j] ] = line[i+j];
                 char_to_code[ line[i+j] ] = codes[j];
+            //Assigning isnt possible, continue the outer loop:
             } else {
                 break;
             }
