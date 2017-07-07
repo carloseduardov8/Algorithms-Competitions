@@ -26,19 +26,31 @@ int main(){
     int free_nights = n/(k+1);
     max_prices = new int[free_nights];
 
-    //Retrieves the highest prices:
+    //Retrieves the highest prices and saves them to max_prices in descending order:
     bool* bitmask = new bool[prices]();
     for (int i=0; i<free_nights; i++){
-        int max = 0;
-        int position = -1;
+        int max = 0; //Max element
+        int pos = -1; //Position of max element
         //Loops through the array:
         for (int j=0; j<n; j++){
-            if ((prices[j] > max) and (bitmask[j] == 0)){
+            if ((prices[j] > max) and (bitmask[j] == false)){
                 max = prices[j];
-                position = j;
+                pos = j;
             }
         }
         max_prices[i] = max;
+        bitmask[pos] = true;
+    }
+    delete[] bitmask;
+
+    //Fills in the array of available tokens:
+    for (int i=0; i<n; i++){
+        tokens[i] = i+1;
+    }
+
+    //Iterates through the array of max prices, starting from the highest price:
+    for (int i=0; i<free_nights; i++){
+        
     }
 
 
