@@ -15,19 +15,20 @@ int main(){
 	int n;
 	cin >> n;
 
-	int curr = ceil(sqrt(n));
-	int fact = factorial(curr);
+	int curr = 8;
+	long long int fact = factorial(curr);
 
 	int acc = 0;
 	int answer = 0;
 
 	while (acc != n){
-		fact /= curr;
-		if (fact < n - acc){
+		if (fact <= n - acc){
 			acc += fact;
 			answer += 1;
+		} else {
+			curr--;
 		}
-		curr--;
+		fact = factorial(curr);
 	}
 
 	cout << answer << endl;
